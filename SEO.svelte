@@ -64,13 +64,18 @@
      * @param {Array} socials - An array of social media links for SchemaOrg.
      */
     export let socials = [];
+    /**
+     * @component SEO
+     * @param {string} name - The name to be used for SchemaOrg.
+     */
+    export let name = "";
 
     let socialsString = socials.map(e => e.url).join(", ");
 
     let jsonLd = {
         "@context": "https://schema.org",
         "@type":  ['Person', 'Organization'],
-        "name": "Dahoom AlShaya",
+        "name": `${name}`,
         "url": `${$page.url.origin}`,
         "image": `${imageURL}`,
         logo: {
@@ -129,7 +134,7 @@
     {/if}
 
     <!-- JSON-LD Schema -->
-    {#if schemaOrg || socials != []}
+    {#if schemaOrg || socials != [] || logo !== "" || name !== ""}
         {@html jsonLdScript}
     {/if}
 </svelte:head>
