@@ -27,21 +27,22 @@ Then place this code anywhere in your svelte file
 | ------------- | ----------------------- | ------- | ----------------------- |
 | `title`| The title of the page | string | ~ |
 | `description`| The description of the page | string | ~ |
-| `keywords`| (optional) The keywords to be used for search engine optimization or search | string | ~ |
-| `index`| (optional) Whether or not crawlers should crawl this page | boolean | true |
+| `keywords`| The keywords to be used for search engine optimization or search | string | ~ |
+| `index`| Whether or not crawlers should crawl this page | boolean | true |
 
 # Advanced
+All these choices are optional
 | Parameter     | Description             | Type | Default             |
 | ------------- | ----------------------- | ------- | ----------------------- |
-| `siteName`| (optional) The name of the site | string | ~ |
-| `twitter`| (optional) Indicates whether Twitter meta tags should be generated | boolean | true |
-| `openGraph`| (optional) Indicates whether og / OpenGraph meta tags should be generated | boolean | true |
-| `schemaOrg`| (optional) Indicates whether jsonLd/SchemaOrg meta script should be generated | boolean | false |
-| `imageURL`| (optional) The URL of the image to be used for preview (twitter, discord image preview when your url is shared) | string | ~ |
-| `logo`| (optional) The logo image URL for SchemaOrg | string | ~ |
-| `author`| (optional) Represents the author of the page | string | ~ |
-| `socials`| (optional) An array of social media links for SchemaOrg | Array | ~ |
-| `name`| (optional) The name to be used for SchemaOrg | string | ~ |
+| `siteName`| The name of the site | string | ~ |
+| `twitter`| Indicates whether Twitter meta tags should be generated | boolean | true |
+| `openGraph`| Indicates whether og / OpenGraph meta tags should be generated | boolean | true |
+| `schemaOrg`| Indicates whether jsonLd/SchemaOrg meta script should be generated | boolean | false |
+| `imageURL`| The URL of the image to be used for preview (twitter, discord image preview when your url is shared) | string | ~ |
+| `logo`| The logo image URL for SchemaOrg | string | ~ |
+| `author`| Represents the author of the page | string | ~ |
+| `socials`| An array of social media links for SchemaOrg | Array | ~ |
+| `name`| The name to be used for SchemaOrg | string | ~ |
 
 ## How it works
 The component uses `<svelte:head>` to put meta tags that are filled with sveltekit $page and inputted variables so for example:
