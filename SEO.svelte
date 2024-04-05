@@ -1,6 +1,5 @@
 <script>
     import { page } from "$app/stores";
-    import { socials } from "$lib/page/navigation";
     
     /**
      * @param {string} title - The title of the page.
@@ -41,23 +40,31 @@
      * @type {boolean}
      * @default true
      */
+    /**
+     * Indicates whether to include Schema.org markup in the SEO component.
+     * @type {boolean}
+     * @default true
+     */
     export let schemaOrg = true;
+    /**
+     * @param {string} imageURL - The URL of the image to be used for preview (twitter, discord image preview when your url is shared).
+     */
+    export let imageURL = "";
+    export let logo = "";
 
     export let author = "";
 
-    let imageURL = $page.url.origin + "/dahoom.png";
-
-    let socialsString = socials.map(e => e.url).join(", ");
+    let socials = socials.map(e => e.url).join(", ");
 
     let jsonLd = {
         "@context": "https://schema.org",
         "@type":  ['Person', 'Organization'],
         "name": "Dahoom AlShaya",
         "url": `${$page.url.origin}`,
-        "image": `${$page.url.origin}/dahoom.png`,
+        "image": `${imageURL}`,
         logo: {
             "@type": "ImageObject",
-            "url": `${$page.url.origin}/favicon.png`,
+            "url": `${logo}`,
             "width": 48,
             "height": 48
         },
@@ -73,7 +80,7 @@
 </script>
 <svelte:head>
     <meta name="robots" content={index ? "index, follow" : "noindex"} />
-    <title>Dahoom • {title}</title>
+    <title>{title}</title>
     {#if description !== ""}
         <meta name="description" content="{description}" />
     {/if}
@@ -91,9 +98,11 @@
         {/if}        
         <meta property="og:url" content="{$page.url}">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Dahoom • {title}">
+        <meta property="og:title" content="{title}">
         <meta property="og:description" content="{description}">
-        <meta property="og:image" content="{imageURL}">
+        {#if imageURL !== ""}
+            <meta property="og:image" content="{imageURL}">
+        {/if}
     {/if}
 
     <!-- Twitter Meta Tags -->
@@ -101,9 +110,11 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="{$page.url.host}">
         <meta property="twitter:url" content="{$page.url}">
-        <meta name="twitter:title" content="Dahoom • {title}">
+        <meta name="twitter:title" content="{title}">
         <meta name="twitter:description" content="{description}">
+        {#if imageURL !== ""}
         <meta name="twitter:image" content="{imageURL}">
+        {/if}
     {/if}
 
     <!-- JSON-LD Schema -->
