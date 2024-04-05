@@ -22,17 +22,27 @@ Then place this code anywhere in your svelte file
 />
 ```
 
-## Choices
-| Parameter     | Description             | Default             |
-| ------------- | ----------------------- | ----------------------- |
-| `title`| The title of the page | ~ |
-| `description`| The description of the page | ~ |
-| `keywords`| (optional) The keywords to be used for search engine optimization or search | ~ |
-| `siteName`| (optional) The name of the site | ~ |
-| `index`| (optional) Whether or not crawlers should crawl this page | true |
+## Standard Parameters
+| Parameter     | Description             | Type | Default             |
+| ------------- | ----------------------- | ------- | ----------------------- |
+| `title`| The title of the page | string | ~ |
+| `description`| The description of the page | string | ~ |
+| `keywords`| (optional) The keywords to be used for search engine optimization or search | string | ~ |
+| `index`| (optional) Whether or not crawlers should crawl this page | boolean | true |
 
 # Advanced
-abc
+| Parameter     | Description             | Type | Default             |
+| ------------- | ----------------------- | ------- | ----------------------- |
+| `siteName`| (optional) The name of the site | string | ~ |
+| `twitter`| (optional) Indicates whether Twitter meta tags should be generated | boolean | true |
+| `openGraph`| (optional) Indicates whether og / OpenGraph meta tags should be generated | boolean | true |
+| `schemaOrg`| (optional) Indicates whether jsonLd/SchemaOrg meta script should be generated | boolean | false |
+| `imageURL`| (optional) The URL of the image to be used for preview (twitter, discord image preview when your url is shared) | string | ~ |
+| `logo`| (optional) The logo image URL for SchemaOrg | string | ~ |
+| `author`| (optional) Represents the author of the page | string | ~ |
+| `socials`| (optional) An array of social media links for SchemaOrg | Array | ~ |
+| `name`| (optional) The name to be used for SchemaOrg | string | ~ |
+
 ## How it works
 The component uses `<svelte:head>` to put meta tags that are filled with sveltekit $page and inputted variables so for example:
 ```svelte
