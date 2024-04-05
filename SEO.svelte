@@ -45,14 +45,24 @@
      * @type {boolean}
      * @default true
      */
-    export let schemaOrg = true;
+    export let schemaOrg = false;
     /**
      * @param {string} imageURL - The URL of the image to be used for preview (twitter, discord image preview when your url is shared).
      */
     export let imageURL = "";
+    /**
+     * Represents the SEO component.
+     * @prop {string} logo - The logo image URL for SchemaOrg.
+     */
     export let logo = "";
-
+    /**
+     * Represents the author of the page.
+     * @type {string}
+     */
     export let author = "";
+    /**
+     * @param {Array} socials - An array of social media links for SchemaOrg.
+     */
     export let socials = [];
 
     let socialsString = socials.map(e => e.url).join(", ");
