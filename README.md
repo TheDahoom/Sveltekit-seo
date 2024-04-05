@@ -7,7 +7,13 @@ npm i sk-seo
 ```
 
 ## Usage
-Place this code anywhere in your svelte file
+import the file
+```svelte
+<script>
+  import SEO from 'sk-seo';
+</script>
+```
+Then place this code anywhere in your svelte file
 ```svelte
 <SEO 
   title="Contact"
@@ -25,6 +31,8 @@ Place this code anywhere in your svelte file
 | `siteName`| (optional) The name of the site | ~ |
 | `index`| (optional) Whether or not crawlers should crawl this page | true |
 
+# Advanced
+abc
 ## How it works
 The component uses `<svelte:head>` to put meta tags that are filled with sveltekit $page and inputted variables so for example:
 ```svelte
