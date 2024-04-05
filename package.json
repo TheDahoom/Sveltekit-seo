@@ -1,0 +1,21 @@
+{
+  "name": "Sveltekit-seo",
+  "version": "0.0.1",
+  "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
+  "main": "SEO.svelte",
+  "keywords": [
+    "lightweight",
+    "sveltekit",
+    "seo",
+    "depencency-free",
+    "component",
+    "seo-optimization",
+    "no-dependencies"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDahoom/Sveltekit-seo.git"
+  },
+  "author": "Dahoom AlShaya DahoomAlShaya@dahoom.com",
+  "license": "MIT"
+}
