@@ -40,11 +40,6 @@
      * @type {boolean}
      * @default true
      */
-    /**
-     * Indicates whether to include Schema.org markup in the SEO component.
-     * @type {boolean}
-     * @default true
-     */
     export let schemaOrg = false;
     /**
      * @param {string} imageURL - The URL of the image to be used for preview (twitter, discord image preview when your url is shared).
