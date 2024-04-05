@@ -53,8 +53,9 @@
     export let logo = "";
 
     export let author = "";
+    export let socials = [];
 
-    let socials = socials.map(e => e.url).join(", ");
+    let socialsString = socials.map(e => e.url).join(", ");
 
     let jsonLd = {
         "@context": "https://schema.org",
@@ -118,7 +119,7 @@
     {/if}
 
     <!-- JSON-LD Schema -->
-    {#if schemaOrg}
+    {#if schemaOrg || socials != []}
         {@html jsonLdScript}
     {/if}
 </svelte:head>
