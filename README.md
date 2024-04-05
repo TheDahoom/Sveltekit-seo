@@ -10,12 +10,12 @@ npm i -D sk-seo
 import the file
 ```svelte
 <script>
-  import SEO from 'sk-seo';
+  import Seo from 'sk-seo';
 </script>
 ```
 Then place this code anywhere in your svelte file
 ```svelte
-<SEO 
+<Seo 
   title="Contact"
   description="Where to contact Dahoom AlShaya, whether for buisness needs or general inquiries"
   keywords="Contact, buisness, inquiries"
