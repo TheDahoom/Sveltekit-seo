@@ -1,5 +1,6 @@
 # Sveltekit SEO
 > dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
+> Also optionally includes functionality for social media preview support
 ## Installation
 ```bash 
 npm i sk-seo
