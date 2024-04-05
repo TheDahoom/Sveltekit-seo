@@ -3,7 +3,7 @@
 > Also optionally includes functionality for social media preview support
 ## Installation
 ```bash 
-npm i sk-seo
+npm i -D sk-seo
 ```
 
 ## Usage
