@@ -41,7 +41,9 @@
 </script>
 <svelte:head>
     <meta name="robots" content={index ? "index, follow" : "noindex"} />
-    <title>{title}</title>
+    {#if title !== ""}
+        <title>{title}</title>
+    {/if}
     {#if description !== ""}
         <meta name="description" content="{description}" />
     {/if}
@@ -59,8 +61,12 @@
         {/if}        
         <meta property="og:url" content="{$page.url}">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="{title}">
-        <meta property="og:description" content="{description}">
+        {#if title !== ""}
+            <meta property="og:title" content="{title}">
+        {/if}
+        {#if description !== ""}
+            <meta property="og:description" content="{description}">
+        {/if}
         {#if imageURL !== ""}
             <meta property="og:image" content="{imageURL}">
         {/if}
@@ -71,8 +77,12 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="{$page.url.host}">
         <meta property="twitter:url" content="{$page.url}">
-        <meta name="twitter:title" content="{title}">
+        {#if title !== ""}
+            <meta name="twitter:title" content="{title}">
+        {/if}
+        {#if description !== ""}
         <meta name="twitter:description" content="{description}">
+        {/if}
         {#if imageURL !== ""}
         <meta name="twitter:image" content="{imageURL}">
         {/if}
