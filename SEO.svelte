@@ -1,68 +1,18 @@
 <script>
     import { page } from "$app/stores";
     
-    /**
-     * @param {string} title - The title of the page.
-     */
     export let title = "";
-    /**
-     * @param {string} description - The description of the website.
-     */
     export let description = "";
-    /**
-     * @param {string} keywords - (optional) The SEO keywords to be used for search engine optimization.
-     */
     export let keywords = "";
-    /**
-     * @param {string} siteName - The name of the site.
-     */
     export let siteName = "";
-    /**
-     * Indicates whether the component should be indexed by search engines.
-     * @type {boolean}
-     * @default true
-     */
     export let index = true;
-    /**
-     * Indicates whether Twitter meta tags should be generated.
-     * @type {boolean}
-     * @default true
-     */
     export let twitter = true;
-    /**
-     * Indicates whether og / OpenGraph meta tags should be generated.
-     * @type {boolean}
-     * @default true
-     */
     export let openGraph = true;
-    /**
-     * Indicates whether jsonLd/SchemaOrg meta script should be generated.
-     * @type {boolean}
-     * @default true
-     */
     export let schemaOrg = false;
-    /**
-     * @param {string} imageURL - The URL of the image to be used for preview (twitter, discord image preview when your url is shared).
-     */
     export let imageURL = "";
-    /**
-     * Represents the SEO component.
-     * @prop {string} logo - The logo image URL for SchemaOrg.
-     */
     export let logo = "";
-    /**
-     * Represents the author of the page.
-     * @type {string}
-     */
     export let author = "";
-    /**
-     * @param {Array} socials - An array of social media links for SchemaOrg.
-     */
     export let socials = [];
-    /**
-     * @component SEO
-     * @param {string} name - The name to be used for SchemaOrg.
-     */
     export let name = "";
 
     let socialsString = socials.map(e => e.url).join(", ");
