@@ -1,8 +1,14 @@
 {
   "name": "sk-seo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
   "main": "SEO.svelte",
+  "exports": {
+    ".": {
+      "types": "./SEO.svelte.d.ts",
+      "svelte": "./SEO.svelte"
+    }
+  },
   "keywords": [
     "lightweight",
     "sveltekit",
