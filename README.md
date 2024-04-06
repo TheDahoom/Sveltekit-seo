@@ -63,7 +63,7 @@ I initially made this for my personal website and decided to open source it to s
 It's optional for anyone who wants to use it. Google doesn't rely on keywords anymore but apparently bing still does put a tiny weight on it. I personally use keywords for my personal website's search function.
 
 ## License
-MIT License
+[MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)
 
 ## Credits
 Thanks to [RodneyLab](https://github.com/rodneylab) for his [blog](https://rodneylab.com/adding-schema-org-markup-to-sveltekit-site/) post which taught me about jsonLd and for suggesting an interesting snippet of code to render jsonLd
