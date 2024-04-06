@@ -40,8 +40,8 @@
     ${'<'}/script>`;
 </script>
 <svelte:head>
-    <meta name="robots" content={index ? "index, follow" : "noindex"} />
     {#if title !== ""}
+        <meta name="robots" content={index ? "index, follow" : "noindex"} />
         <title>{title}</title>
     {/if}
     {#if description !== ""}
@@ -59,9 +59,9 @@
         {#if siteName !== ""}
             <meta property="og:site_name" content="{siteName}">
         {/if}        
-        <meta property="og:url" content="{$page.url}">
-        <meta property="og:type" content="website">
         {#if title !== ""}
+            <meta property="og:url" content="{$page.url}">
+            <meta property="og:type" content="website">
             <meta property="og:title" content="{title}">
         {/if}
         {#if description !== ""}
@@ -74,10 +74,10 @@
 
     <!-- Twitter Meta Tags -->
     {#if twitter}
-        <meta name="twitter:card" content="summary_large_image">
-        <meta property="twitter:domain" content="{$page.url.host}">
-        <meta property="twitter:url" content="{$page.url}">
         {#if title !== ""}
+            <meta name="twitter:card" content="summary_large_image">
+            <meta property="twitter:domain" content="{$page.url.host}">
+            <meta property="twitter:url" content="{$page.url}">
             <meta name="twitter:title" content="{title}">
         {/if}
         {#if description !== ""}
