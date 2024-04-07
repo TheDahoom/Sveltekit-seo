@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.check-version.outputs.new_version }}
-          release_name: Release ${{ steps.check-version.outputs.new_version }}
+          release_name: v${{ steps.check-version.outputs.new_version }}
           draft: false
           prerelease: false
       - name: Publish to npm
