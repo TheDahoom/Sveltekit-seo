@@ -34,10 +34,7 @@
         ]
     };
     let jsonLdStrung = JSON.stringify(jsonLd);
-    let jsonLdScript = `
-    <script type="application/ld+json">
-        ${jsonLdStrung}
-    ${'<'}/script>`;
+    let jsonLdScript = `<script type="application/ld+json">${jsonLdStrung}${'<'}/script>`;
 </script>
 <svelte:head>
     {#if title !== ""}
