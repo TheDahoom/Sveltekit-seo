@@ -15,7 +15,7 @@
     export let socials = [];
     export let name = "";
 
-    let socialsString = socials.map(e => e.url).join(", ");
+    let socialsString = socials.join(", ");
 
     let jsonLd = {
         "@context": "https://schema.org",

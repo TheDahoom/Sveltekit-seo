@@ -24,7 +24,7 @@ export default class Seo extends SvelteComponent<{
     /** Represents the author of the page */
     author?: string;
     /** An array of social media links for SchemaOrg */
-    socials?: { url: string }[];
+    socials?: string[];
     /** The name to be used for SchemaOrg */
     name?: string;
 }, {
@@ -48,7 +48,7 @@ declare const __propDef: {
         imageURL?: string;
         logo?: string;
         author?: string;
-        socials?: { url: string }[];
+        socials?: string[];
         name?: string;
     };
     events: {
