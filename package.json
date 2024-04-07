@@ -1,6 +1,6 @@
 {
   "name": "sk-seo",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
   "main": "SEO.svelte",
   "exports": {
@@ -16,7 +16,8 @@
     "depencency-free",
     "component",
     "seo-optimization",
-    "no-dependencies"
+    "no-dependencies",
+    "automation"
   ],
   "repository": {
     "type": "git",

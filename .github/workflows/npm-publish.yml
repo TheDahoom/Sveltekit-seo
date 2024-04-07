@@ -39,4 +39,4 @@ jobs:
         if: steps.check-version.outputs.version_changed == 'true'
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
