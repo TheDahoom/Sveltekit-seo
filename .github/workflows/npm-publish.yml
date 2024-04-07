@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
       - name: Check if version has been incremented
         id: check-version
         run: |
