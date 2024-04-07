@@ -19,9 +19,10 @@ jobs:
       - name: Check if version has been incremented
         id: check-version
         run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
           VERSION=$(node -p "require('./package.json').version")
-          PREVIOUS_VERSION=$(git show HEAD~1:package.json | node -p "require('./package.json').version")
-          if [ "$VERSION" != "$PREVIOUS_VERSION" ]; then
+          CURRENT_VERSION=$(npm view $PACKAGE_NAME version)
+          if [ "$VERSION" != "$CURRENT_VERSION" ]; then
             echo "::set-output name=version_changed::true"
             echo "::set-output name=new_version::$VERSION"
           fi
