@@ -20,8 +20,8 @@ Then place this code anywhere in your svelte file
 ```svelte
 <Seo 
   title="Contact"
-  description="Where to contact Dahoom AlShaya, whether for buisness needs or general inquiries"
-  keywords="Contact, buisness, inquiries"
+  description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
+  keywords="Contact, business, inquiries"
 />
 ```
 
