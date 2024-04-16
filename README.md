@@ -38,6 +38,7 @@ All these choices are optional
 | Parameter     | Description             | Type | Default             |
 | ------------- | ----------------------- | ------- | ----------------------- |
 | `siteName`| The name of the site | string | ~ |
+| `canonical`| Current URL of the page. For resolving duplicate pages with SEO | string | ~ |
 | `twitter`| Indicates whether Twitter meta tags should be generated | boolean | true |
 | `openGraph`| Indicates whether og / OpenGraph meta tags should be generated | boolean | true |
 | `schemaOrg`| Indicates whether jsonLd/SchemaOrg meta script should be generated | boolean | false |
