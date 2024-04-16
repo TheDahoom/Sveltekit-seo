@@ -2,7 +2,6 @@
 > dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
 > Also optionally includes functionality for social media preview support
 
-[![install size](https://packagephobia.com/badge?p=sk-seo)](https://packagephobia.com/result?p=sk-seo)
 [![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo)](https://img.shields.io/bundlephobia/minzip/sk-seo)
 [![installs](https://img.shields.io/npm/dm/sk-seo)](https://img.shields.io/npm/dm/sk-seo)
 
