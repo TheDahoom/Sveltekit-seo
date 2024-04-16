@@ -8,6 +8,8 @@ export default class Seo extends SvelteComponent<{
     description?: string;
     /** (optional) The SEO keywords to be used for search engine optimization. */
     keywords?: string;
+    /** Current URL of the page. For resolving duplicate pages with SEO */
+    canonical?: string;
     /** The name of the site.*/
     siteName?: string;
     /** Indicates whether the component should be indexed by search engines. 
