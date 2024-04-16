@@ -89,7 +89,7 @@
     {/if}
 
     <!-- JSON-LD Schema -->
-    {#if schemaOrg || socials != [] || logo !== "" || name !== ""}
+    {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
         {@html jsonLdScript}
     {/if}
 </svelte:head>
