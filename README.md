@@ -58,7 +58,7 @@ The component uses `<svelte:head>` to put meta tags that are filled with sveltek
 ## Why
 A lot of SEO is repeated boilerplate for twitter, open graph and schemaOrg. This component's sole purpose is to do away with all the annoyances and just help you focus on your content without having to spend hours making sure all the meta tags are correctly set on each and every page.
 
-I initially made this for my personal website and decided to open source it to so that no one has to go through the headache I did to make sure everything is functional 
+I initially made this for my personal website and decided to open source it to so that no one has to go through the headache I did to make sure everything is functional.
 
 ## keywords?!
 It's optional for anyone who wants to use it. Google doesn't rely on keywords anymore but apparently bing still does put a tiny weight on it. I personally use keywords for my personal website's search function.
