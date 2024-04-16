@@ -4,6 +4,7 @@
     export let title = "";
     export let description = "";
     export let keywords = "";
+    export let canonical = "";
     export let siteName = "";
     export let index = true;
     export let twitter = true;
@@ -40,6 +41,8 @@
     {#if title !== ""}
         <meta name="robots" content={index ? "index, follow" : "noindex"} />
         <title>{title}</title>
+        <meta rel="canonical" content="{canonical === "" ? $page.url : canonical}" />
+
     {/if}
     {#if description !== ""}
         <meta name="description" content="{description}" />
