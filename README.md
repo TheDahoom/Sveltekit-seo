@@ -1,9 +1,20 @@
-# Sveltekit SEO
-> dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
-> Also optionally includes functionality for social media preview support
+<p align="center">
+  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/4b17223b-2314-4ef9-875f-ae7d661b66d6" alt="sk-seo logo" />
+</p>
 
-[![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo)](https://img.shields.io/bundlephobia/minzip/sk-seo)
-[![installs](https://img.shields.io/npm/dm/sk-seo)](https://img.shields.io/npm/dm/sk-seo)
+
+<p align="center">
+A dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
+Also optionally includes functionality for social media preview support
+</p>
+
+<div align="center">
+
+  [![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo)](https://img.shields.io/bundlephobia/minzip/sk-seo)
+  [![installs](https://img.shields.io/npm/dm/sk-seo)](https://img.shields.io/npm/dm/sk-seo)
+
+</div>
+
 
 ## Installation
 ```bash 
