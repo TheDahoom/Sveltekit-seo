@@ -10,8 +10,10 @@ Also optionally includes functionality for social media preview support
 
 <div align="center">
 
-  [![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo)](https://img.shields.io/bundlephobia/minzip/sk-seo)
-  [![installs](https://img.shields.io/npm/dm/sk-seo)](https://img.shields.io/npm/dm/sk-seo)
+  [![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo?style=for-the-badge)](https://img.shields.io/bundlephobia/minzip/sk-seo)
+  [![installs](https://img.shields.io/npm/dm/sk-seo?style=for-the-badge)](https://img.shields.io/npm/dm/sk-seo)
+  [![GitHub Repo stars](https://img.shields.io/github/stars/TheDahoom/sveltekit-seo?style=for-the-badge&label=STAR)](https://github.com/TheDahoom/Sveltekit-seo)
+  [![GitHub followers](https://img.shields.io/github/followers/TheDahoom?style=for-the-badge&logo=github&label=follow)](https://github.com/TheDahoom)
 
 </div>
 
