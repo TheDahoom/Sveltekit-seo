@@ -1,9 +1,23 @@
-# Sveltekit SEO
-> dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
-> Also optionally includes functionality for social media preview support
+<p align="center">
+  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/4b17223b-2314-4ef9-875f-ae7d661b66d6" alt="sk-seo logo" />
+</p>
 
-[![install size](https://packagephobia.com/badge?p=sk-seo)](https://packagephobia.com/result?p=sk-seo)
-[![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo)](https://img.shields.io/bundlephobia/minzip/sk-seo)
+
+<p align="center">
+A dead simple, no dependencies, svelte component that automates a lot of the annoying SEO parts for you.
+Also optionally includes functionality for social media preview support
+</p>
+
+<div align="center">
+
+  [![minzip size](https://img.shields.io/bundlephobia/minzip/sk-seo?style=for-the-badge)](https://img.shields.io/bundlephobia/minzip/sk-seo)
+  [![installs](https://img.shields.io/npm/dm/sk-seo?style=for-the-badge)](https://img.shields.io/npm/dm/sk-seo)
+  [![GitHub Repo stars](https://img.shields.io/github/stars/TheDahoom/sveltekit-seo?style=for-the-badge&label=STAR)](https://github.com/TheDahoom/Sveltekit-seo)
+  [![GitHub followers](https://img.shields.io/github/followers/TheDahoom?style=for-the-badge&logo=github&label=follow)](https://github.com/TheDahoom)
+
+</div>
+
+
 ## Installation
 ```bash 
 npm i -D sk-seo
