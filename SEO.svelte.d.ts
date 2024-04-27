@@ -42,6 +42,7 @@ declare const __propDef: {
         title?: string;
         description?: string;
         keywords?: string;
+        canonical?: string;
         siteName?: string;
         index?: boolean;
         twitter?: boolean;
