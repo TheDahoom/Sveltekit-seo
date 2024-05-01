@@ -82,3 +82,8 @@ It's optional for anyone who wants to use it. Google doesn't rely on keywords an
 
 ## Credits
 Thanks to [RodneyLab](https://github.com/rodneylab) for his [blog](https://rodneylab.com/adding-schema-org-markup-to-sveltekit-site/) post which taught me about jsonLd and for suggesting an interesting snippet of code to render jsonLd
+
+## As seen on
+[Svelte Blog](https://svelte.dev/blog/whats-new-in-svelte-may-2024)
+[The Guardian](https://youtu.be/iik25wqIuFo)
+[New York Times](https://youtu.be/iik25wqIuFo)
