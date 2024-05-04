@@ -26,7 +26,7 @@
         "image": `${imageURL}`,
         logo: {
             "@type": "ImageObject",
-            "url": `${logo === "" ? imageURL : logo}`,
+            "url": `${logo}`,
             "width": 48,
             "height": 48
         },
