@@ -69,6 +69,12 @@ The component uses `<svelte:head>` to put meta tags that are filled with sveltek
 ```
 
 ## Extendable
+IF you want to use an unusual meta tag or use your own custom one (eg: google site verification). It's easy as:
+```svelte
+<Seo title="abc" description="def">
+  <meta name="google-site-verification" content="abcd123">
+</Seo>
+```
 
 ## Why
 A lot of SEO is repeated boilerplate for twitter, open graph and schemaOrg. This component's sole purpose is to do away with all the annoyances and just help you focus on your content without having to spend hours making sure all the meta tags are correctly set on each and every page.
