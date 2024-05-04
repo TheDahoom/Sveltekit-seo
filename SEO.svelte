@@ -41,7 +41,6 @@
         <meta name="robots" content={index ? "index, follow" : "noindex"} />
         <title>{title}</title>
         <meta rel="canonical" content="{canonical === "" ? $page.url : canonical}" />
-
     {/if}
     {#if description !== ""}
         <meta name="description" content="{description}" />
