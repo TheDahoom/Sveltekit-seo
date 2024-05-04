@@ -26,7 +26,7 @@
         "image": `${imageURL}`,
         logo: {
             "@type": "ImageObject",
-            "url": `${logo}`,
+            "url": `${logo === "" ? imageURL : logo}`,
             "width": 48,
             "height": 48
         },
@@ -34,8 +34,7 @@
             `${socialsString}`
         ]
     };
-    let jsonLdStrung = JSON.stringify(jsonLd);
-    let jsonLdScript = `<script type="application/ld+json">${jsonLdStrung}${'<'}/script>`;
+    let jsonLdScript = `<script type="application/ld+json">${JSON.stringify(jsonLd)}${'<'}/script>`;
 </script>
 <svelte:head>
     {#if title !== ""}
@@ -87,7 +86,6 @@
         <meta name="twitter:image" content="{imageURL}">
         {/if}
     {/if}
-
     <slot />
 
     <!-- JSON-LD Schema -->
