@@ -68,6 +68,7 @@ The component uses `<svelte:head>` to put meta tags that are filled with sveltek
 <meta property="og:url" content="{$page.url}">
 ```
 
+## Extendable
 
 ## Why
 A lot of SEO is repeated boilerplate for twitter, open graph and schemaOrg. This component's sole purpose is to do away with all the annoyances and just help you focus on your content without having to spend hours making sure all the meta tags are correctly set on each and every page.
