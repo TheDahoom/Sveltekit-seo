@@ -88,6 +88,8 @@
         {/if}
     {/if}
 
+    <slot />
+
     <!-- JSON-LD Schema -->
     {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
         {@html jsonLdScript}
