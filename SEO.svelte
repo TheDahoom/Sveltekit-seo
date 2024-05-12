@@ -1,20 +1,10 @@
 <script>
     import { page } from "$app/stores";
     
-    export let title = "";
-    export let description = "";
-    export let keywords = "";
-    export let canonical = "";
-    export let siteName = "";
-    export let index = true;
-    export let twitter = true;
-    export let openGraph = true;
+    export let title, description, keywords, canonical, siteName, imageURL, logo, author, name = "";
+    export let index, twitter, openGraph = true;
     export let schemaOrg = false;
-    export let imageURL = "";
-    export let logo = "";
-    export let author = "";
     export let socials = [];
-    export let name = "";
 
     let Ld = {
         "@context": "https://schema.org",
@@ -49,8 +39,6 @@
     {#if author !== ""}
         <meta name="author" content="{author}" />
     {/if}
-    
-    <!-- Open Graph Meta Tags -->
     {#if openGraph}
         {#if siteName !== ""}
             <meta property="og:site_name" content="{siteName}">
@@ -67,8 +55,6 @@
             <meta property="og:image" content="{imageURL}">
         {/if}
     {/if}
-
-    <!-- Twitter Meta Tags -->
     {#if twitter}
         {#if title !== ""}
             <meta name="twitter:card" content="summary_large_image">
@@ -84,8 +70,6 @@
         {/if}
     {/if}
     <slot />
-
-    <!-- JSON-LD Schema -->
     {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
         {@html jsonLdScript}
     {/if}
