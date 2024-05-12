@@ -1,6 +1,6 @@
 {
   "name": "sk-seo",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
   "main": "SEO.svelte",
   "exports": {
