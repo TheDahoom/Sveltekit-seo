@@ -93,8 +93,8 @@ If you're behind `Cloudflare` and find yourself with duplicated meta tags, then 
 [MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)
 
 ## Credits
--Thanks to [ArchangelGCA](https://github.com/ArchangelGCA) for the multiple quality of life imporvements and fixes!
--Thanks to [RodneyLab](https://github.com/rodneylab) for his [blog](https://rodneylab.com/adding-schema-org-markup-to-sveltekit-site/) post which taught me about jsonLd and for suggesting an interesting snippet of code to render jsonLd
+- Thanks to [ArchangelGCA](https://github.com/ArchangelGCA) for the multiple quality of life imporvements and fixes!
+- Thanks to [RodneyLab](https://github.com/rodneylab) for his [blog](https://rodneylab.com/adding-schema-org-markup-to-sveltekit-site/) post which taught me about jsonLd and for suggesting an interesting snippet of code to render jsonLd
 
 ## As seen on
 [Svelte Blog](https://svelte.dev/blog/whats-new-in-svelte-may-2024)
