@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/4b17223b-2314-4ef9-875f-ae7d661b66d6" alt="sk-seo logo" />
+  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/338fd0ad-120f-4b4b-ac00-d56e0b765724" alt="sk-seo logo" />
 </p>
 
 
