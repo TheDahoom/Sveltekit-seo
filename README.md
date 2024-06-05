@@ -63,7 +63,7 @@ All these choices are optional
 | `name`| The name to be used for SchemaOrg | string | ~ |
 
 ## How it works
-The component uses `<svelte:head>` to put meta tags that are filled with sveltekit $page and inputted variables so for example:
+The component uses `<svelte:head>` to place meta tags that are filled with sveltekit $page and inputted variables, this means that a lot of the tags are automatically filled for you for each page in your website. An example of this is `og:url`, which requires the url of the current page:
 ```svelte
 <meta property="og:url" content="{$page.url}">
 ```
