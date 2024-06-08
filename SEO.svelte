@@ -23,7 +23,7 @@
             `${socials.join(", ")}`
         ]
     };
-    let jsonLdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
+    let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
 <svelte:head>
     {#if title !== ""}
@@ -79,6 +79,6 @@
     {/if}
     <slot/>
     {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
-        {@html jsonLdScript}
+        {@html LdScript}
     {/if}
 </svelte:head>
