@@ -19,6 +19,8 @@ export default class Seo extends SvelteComponent<{
     twitter?: boolean;
     /** Indicates whether og / OpenGraph meta tags should be generated @default true*/
     openGraph?: boolean;
+    /** Indicates whether schema.org meta tags should be generated @default false */
+    schemaOrg?: boolean;
     /** The URL of the image to be used for preview (twitter, discord image preview when your url is shared) */
     imageURL?: string;
     /** The logo image URL for SchemaOrg */
