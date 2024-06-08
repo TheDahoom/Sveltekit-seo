@@ -5,7 +5,7 @@
         author = "", name = "";
     export let index = true, twitter = true, openGraph = true;
     export let schemaOrg = false;
-    export let socials = [];
+    export let socials = [], jsonLd = {};
 
     let Ld = {
         "@context": "https://schema.org",
