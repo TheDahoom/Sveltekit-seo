@@ -21,6 +21,8 @@ export default class Seo extends SvelteComponent<{
     openGraph?: boolean;
     /** Indicates whether schema.org meta tags should be generated @default false */
     schemaOrg?: boolean;
+    /** JSON-LD schema.org data to be appended to existing jsonLd data */
+    jsonld?: {};
     /** The URL of the image to be used for preview (twitter, discord image preview when your url is shared) */
     imageURL?: string;
     /** The logo image URL for SchemaOrg */
@@ -50,6 +52,7 @@ declare const __propDef: {
         twitter?: boolean;
         openGraph?: boolean;
         schemaOrg?: boolean;
+        jsonld?: {};
         imageURL?: string;
         logo?: string;
         author?: string;
