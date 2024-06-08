@@ -13,7 +13,7 @@
         "name": `${name}`,
         "url": `${$page.url.origin}`,
         "image": `${imageURL}`,
-        logo: {
+        "logo": {
             "@type": "ImageObject",
             "url": `${logo}`,
             "width": 48,
