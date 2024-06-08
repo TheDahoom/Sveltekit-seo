@@ -5,7 +5,7 @@
         author = "", name = "";
     export let index = true, twitter = true, openGraph = true;
     export let schemaOrg = false;
-    export let socials = [], jsonLd = {};
+    export let socials = [], jsonld = {};
 
     let Ld = {
         "@context": "https://schema.org",
@@ -23,6 +23,7 @@
             `${socials.join(", ")}`
         ]
     };
+    Ld = { ...Ld, ...jsonld };
     let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
 <svelte:head>
