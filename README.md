@@ -82,7 +82,7 @@ A lot of SEO is repeated boilerplate for twitter, open graph and schemaOrg. This
 
 I initially made this for my personal website and decided to open source it to so that no one has to go through the headache I did to make sure everything is functional.
 
-## keywords?!
+## Keywords?!
 It's optional for anyone who wants to use it. Google doesn't rely on keywords anymore but apparently bing still does put a tiny weight on it. I personally use keywords for my personal website's search function.
 
 ## Duplicated Meta?
