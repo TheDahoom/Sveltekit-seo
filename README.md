@@ -57,6 +57,7 @@ All these choices are optional
 | `twitter`| Indicates whether Twitter meta tags should be generated | boolean | true |
 | `openGraph`| Indicates whether og / OpenGraph meta tags should be generated | boolean | true |
 | `schemaOrg`| Indicates whether jsonLd/SchemaOrg meta script should be generated | boolean | false |
+| `schemaType`| The type of jsonld schema (Person, Organisation, Create) @default Person,Organisation | string | `'Person','Organisation'` |
 | `jsonld`| Appends contents to jsonld script (used by search engines for names, contact information, [etc](https://json-ld.org)) | object `{}` | ~ |
 | `imageURL`| The URL of the image to be used for preview (twitter, discord image preview when your url is shared) | string | ~ |
 | `logo`| The logo image URL for SchemaOrg | string | ~ |
