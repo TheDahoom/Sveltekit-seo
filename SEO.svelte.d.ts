@@ -52,6 +52,7 @@ declare const __propDef: {
         twitter?: boolean;
         openGraph?: boolean;
         schemaOrg?: boolean;
+        schemaType?: string;
         jsonld?: {};
         imageURL?: string;
         logo?: string;
