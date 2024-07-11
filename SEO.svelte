@@ -10,18 +10,16 @@
     let Ld = {
         "@context": "https://schema.org",
         "@type": schemaType.length > 1 ? schemaType : schemaType[0],
-        "name": `${name}`,
-        "url": `${$page.url.origin}`,
-        "image": `${imageURL}`,
+        "name": name,
+        "url": $page.url.origin,
+        "image": imageURL,
         "logo": {
             "@type": "ImageObject",
-            "url": `${logo}`,
+            "url": logo,
             "width": 48,
             "height": 48
         },
-        "sameAs": [
-            `${socials.join(", ")}`
-        ]
+        "sameAs": socials
     };
     Ld = { ...Ld, ...jsonld };
     let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
