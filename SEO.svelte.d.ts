@@ -21,6 +21,8 @@ export default class Seo extends SvelteComponent<{
     openGraph?: boolean;
     /** Indicates whether schema.org meta tags should be generated @default false */
     schemaOrg?: boolean;
+    /** The type of jsonld schema (Person, Organisation, Create) @default Person,Organisation */
+    schemaType?: string;
     /** JSON-LD schema.org data to be appended to existing jsonLd data */
     jsonld?: {};
     /** The URL of the image to be used for preview (twitter, discord image preview when your url is shared) */
