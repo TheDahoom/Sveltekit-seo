@@ -4,12 +4,12 @@
     export let title = "", description = "", keywords = "", canonical = "", siteName = "", imageURL = "", logo = "",
         author = "", name = "";
     export let index = true, twitter = true, openGraph = true;
-    export let schemaOrg = false;
+    export let schemaOrg = false, schemaType = `'Person', 'Organization'`;
     export let socials = [], jsonld = {};
 
     let Ld = {
         "@context": "https://schema.org",
-        "@type": ['Person', 'Organization'],
+        "@type": [`${schemaType}`],
         "name": `${name}`,
         "url": `${$page.url.origin}`,
         "image": `${imageURL}`,
