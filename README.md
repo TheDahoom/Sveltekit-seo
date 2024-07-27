@@ -14,7 +14,6 @@ Also optionally includes functionality for social media preview support
   [![Installs](https://img.shields.io/npm/d18m/sk-seo?style=for-the-badge)](https://img.shields.io/npm/d18m/sk-seo)
   [![GitHub Repo stars](https://img.shields.io/github/stars/TheDahoom/sveltekit-seo?style=for-the-badge&label=STAR)](https://github.com/TheDahoom/Sveltekit-seo)
   [![GitHub Forks](https://img.shields.io/github/forks/TheDahoom/sveltekit-seo?style=for-the-badge&logo=github&label=fork)](https://github.com/TheDahoom/Sveltekit-seo/fork)
-  [![GitHub followers](https://img.shields.io/github/followers/TheDahoom?style=for-the-badge&logo=github&label=follow)](https://github.com/TheDahoom)
 
 </div>
 
