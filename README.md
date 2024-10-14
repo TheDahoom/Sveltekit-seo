@@ -28,11 +28,11 @@ If you are prerendering, or using adapter-static,  you need to add your base URL
 ```js
 // svelte.config.js
 const config = {
-	kit: {
-		prerender: {
-			origin: 'https://mossberg.dev/' // Replace with your URL.
-		}
-	}
+  kit: {
+    prerender: {
+      origin: 'https://mossberg.dev/' // Replace with your URL.
+    }
+  }
 }
 ```
 
