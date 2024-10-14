@@ -32,7 +32,7 @@
             <meta name="robots" content={index ? "index, follow" : "noindex"}>
         {/if}
         <title>{title}</title>
-        <link rel="canonical" content="{canonical === '' ? $page.url : canonical}">
+        <link rel="canonical" href="{canonical === '' ? $page.url : canonical}">
     {/if}
     {#if description !== ""}
         <meta name="description" content="{description}">
