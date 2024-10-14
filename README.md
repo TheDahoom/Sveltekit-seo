@@ -30,7 +30,7 @@ If you are prerendering, or using adapter-static,  you need to add your base URL
 const config = {
   kit: {
     prerender: {
-      origin: 'https://mossberg.dev/' // Replace with your URL.
+      origin: 'https://mossberg.dev' // Replace with your URL.
     }
   }
 }
