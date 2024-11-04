@@ -23,6 +23,19 @@ Also optionally includes functionality for social media preview support
 npm i -D sk-seo
 ```
 
+If you are prerendering, or using adapter-static,  you need to add your base URL in `svelte.config.js`, otherwise `$page.url` will default to `http://sveltekit-prerender`.
+
+```js
+// svelte.config.js
+const config = {
+  kit: {
+    prerender: {
+      origin: 'https://mossberg.dev' // Replace with your URL.
+    }
+  }
+}
+```
+
 ## Usage
 import the file
 ```svelte
