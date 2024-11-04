@@ -22,20 +22,7 @@ Also optionally includes functionality for social media preview support
 ```bash 
 npm i -D sk-seo
 ```
-
-If you are prerendering, or using adapter-static,  you need to add your base URL in `svelte.config.js`, otherwise `$page.url` will default to `http://sveltekit-prerender`.
-
-```js
-// svelte.config.js
-const config = {
-  kit: {
-    prerender: {
-      origin: 'https://mossberg.dev' // Replace with your URL.
-    }
-  }
-}
-```
-
+If you're using @adapter-static, make sure to follow <a href="#prerendering">this</a>
 ## Usage
 import the file
 ```svelte
@@ -98,6 +85,19 @@ I initially made this for my personal website and decided to open source it to s
 
 ## Keywords?!
 It's optional for anyone who wants to use it. Google doesn't rely on keywords anymore but apparently bing still does put a tiny weight on it. I personally use keywords for my personal website's search function.
+
+## Prerendering
+If you are using adapter-static,  you need to add your base URL in `svelte.config.js`, otherwise `$page.url` will default to `http://sveltekit-prerender`.
+```js
+// svelte.config.js
+const config = {
+  kit: {
+    prerender: {
+      origin: 'https://mossberg.dev' // Replace with your URL.
+    }
+  }
+}
+```
 
 ## Duplicated Meta?
 If you're behind `Cloudflare` and find yourself with duplicated meta tags, then you should disable auto-minify!
