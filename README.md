@@ -41,13 +41,13 @@ Then place this code anywhere in your svelte file (preferably in your `+layout.s
 
 > [!IMPORTANT]
 > It's recommeded to place the `Seo` component in your `+layout.svelte` page **only once**. 
-> DO NOT PLACE IT IN MULTIPLE PAGES TO AVOID DUPLICATE META TAGS.
-> Use $page.data store, +layout.js and +page.js load functions to dynamically change meta tags.
-> This has been also mentioned in the [Svelte/Seo](https://svelte.dev/docs/kit/seo#Manual-setup) documentation.
+> <br>DO NOT PLACE IT IN MULTIPLE PAGES TO AVOID DUPLICATED META TAGS.
+> <br>Use $page.data store, +layout.js and +page.js load functions to dynamically change meta tags. This has been also mentioned in the [Svelte/Seo](https://svelte.dev/docs/kit/seo#Manual-setup) documentation.
 
 ## Example (With $page store)
-`+layout.svelte`
+Import Seo and $page store
 ```svelte
+<!-- +layout.svelte -->
 <script>
   import Seo from 'sk-seo';
   import { page } from "$app/stores";
@@ -58,9 +58,12 @@ Then place this code anywhere in your svelte file (preferably in your `+layout.s
 />
 ```
 
-`+layout.js`
+Add a load function to your `+layout.js` with the meta tags that you want to be shared across all pages.
+> [!NOTE]
+> These can be overwritten by the load functions in your `+page.js/+page.server.js` files.
 
 ```js
+// +layout.js
 export const load = async ({}) => {
     return {
         title: "Dahoom - Official",
@@ -70,9 +73,9 @@ export const load = async ({}) => {
 }
 ```
 
-Then in your pages, you can change the meta tags.
-Example with: `routes/contacts/+page.js`
+Then in your pages, you can change the meta tags with more load functions.
 ```js
+// routes/contacts/+page.js
 export const load = async ({}) => {
     return {
         title: "Contact",
@@ -83,11 +86,15 @@ export const load = async ({}) => {
 ```
 
 > [!NOTE]
-> The return data names from load functions should match the names of the parameters in the `Seo` component. Otherwise, make sure to use individual props such as `<Seo title=$page.data.customtitle />` (for example).
+> The return data names from load functions should match the names of the parameters in the `Seo` component. 
+> <br>Otherwise, make sure to use individual props such as (for example):
+> <br>`<Seo title={$page.data.customtitle} />`
+> <br>and in your load function:
+> <br>`return { customtitle: "Custom Title" }`
 
 > [!NOTE]
-> You can do this for either `+page.js`, `+layout.js`, and server side code such as `+page.server.js` and `+layout.server.js`.
-> 
+> You can do this for either `+page.js`, `+layout.js`, and `+page.server.js`, `+layout.server.js`.
+
 ## Standard Parameters
 | Parameter     | Description             | Type | Default             |
 | ------------- | ----------------------- | ------- | ----------------------- |
@@ -153,7 +160,7 @@ If you're behind `Cloudflare` and find yourself with duplicated meta tags, then 
 
 `Speed -> Optimization -> Content Optimization -> Auto Minify -> UNCHECK HTML`
 
-Still experiencing duplicated meta? Make sure that you aren't placing thw `Seo` component in multiple pages (make a +layout.svelte 
+Still experiencing duplicated meta? Make sure that you aren't placing the `Seo` component in multiple pages (make a +layout.svelte 
 and put it there instead).
 Remember that if you're using any `<title>`, and other meta tags in your `app.html`, it won't get updated (Svelte/SvelteKit doesn't handle that automatically).
 
