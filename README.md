@@ -24,16 +24,83 @@ npm i -D sk-seo
 ```
 If you're using @adapter-static, make sure to follow <a href="#prerendering">this</a>
 ## Usage
-import the file
+Add the component to your layout file (eg: `+layout.svelte`).
 ```svelte
+// +layout.svelte
 <script>
   import Seo from 'sk-seo';
 </script>
+
+<Seo />
 ```
-Then place this code anywhere in your svelte file
+This component makes use of `$page.data` **stores**. So we should use some load functions.
+> [!NOTE]
+> These will be automatically picked up by the component and used to fill in the meta tags.
+
+Add a `+layout.js` file alongside your `+layout.svelte` with a load function and return data with the SEO/Meta that you need:
+```js
+// +layout.js
+export const load = async ({ url }) => {
+    // OPTIONAL: You can use url.origin to get the base URL, 
+    // or even url.href to get the full URL.
+    // (For example, to get URLs of images in your /static folder), like this:
+    // imageURL: `${url.origin}/image.jpg`
+    return {
+        title: 'Dahoom - Official',
+        description: 'The official website of Dahoom',
+        keywords: 'dahoom, official, website'
+        // ... and more
+    }
+}
+```
+
+> [!TIP]
+> You can override your `+layout.js` meta from any `+page.js`.
+
+Make sure to add a `+page.js` with a load function to all your pages with the SEO/Meta that you need:
+```js
+// contacts/+page.js
+export const load = async ({ url }) => {
+    // Title, description and keywords set here will replace the title set in +layout.js while visiting /contacts
+    return {
+        title: 'Contacts', 
+        description: 'Where to contact Dahoom AlShaya, whether for business needs or general inquiries',
+        keywords: 'Contact, business, inquiries',
+    }
+}
+```
+
+## DEPRECATED USAGE (Not recommended, duplicates meta tags)
+Put a `<Seo />` tag in each page you want to have SEO for.
+> [!NOTE]
+> This's fine as long as you're making a single-page website (such as, just an homepage). But if you're making a multi-page website, you should use the previous method!
 ```svelte
+// contacts/+page.svelte
+<script>
+  import Seo from 'sk-seo';
+</script>
+
 <Seo 
   title="Contact"
+  description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
+  keywords="Contact, business, inquiries"
+/>
+```
+
+> [!CAUTION]
+> Using `<Seo />` on each page will duplicate meta tags. This's why we recommend using the first method (load functions and `<Seo />` only in your +layout.svelte).
+
+### Conflicting stores/load return values
+
+You could even combine stores and manual input if you really have to:
+```svelte
+<script>
+  import Seo from 'sk-seo';
+  import { page } from '$app/stores';
+</script>
+
+<Seo 
+  title={$page.data.customTitle ?? ''}
   description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
   keywords="Contact, business, inquiries"
 />
@@ -103,6 +170,9 @@ const config = {
 If you're behind `Cloudflare` and find yourself with duplicated meta tags, then you should disable auto-minify!
 
 `Speed -> Optimization -> Content Optimization -> Auto Minify -> UNCHECK HTML`
+
+> [!WARNING] 
+> Still having duplicated meta? Make sure that you're not using `<Seo />` in each page.
 
 ## License
 [MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)

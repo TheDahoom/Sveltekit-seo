@@ -1,11 +1,11 @@
 <script>
     import { page } from "$app/stores";
 
-    export let title = "", description = "", keywords = "", canonical = "", siteName = "", imageURL = "", logo = "",
-        author = "", name = "";
-    export let index = true, twitter = true, openGraph = true;
-    export let schemaOrg = false, schemaType = ['Person', 'Organization'];
-    export let socials = [], jsonld = {};
+    export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
+        author = $page.data.author ?? "", name =$page.data.name ?? "";
+    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
+    export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
+    export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
 
     let Ld = {
         "@context": "https://schema.org",
@@ -21,7 +21,7 @@
         },
         "sameAs": socials
     };
-    Ld = { ...Ld, ...jsonld };
+    Ld = {...Ld, ...jsonld};
     let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
 <svelte:head>
