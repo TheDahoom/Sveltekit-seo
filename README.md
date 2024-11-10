@@ -30,7 +30,7 @@ import the file
   import Seo from 'sk-seo';
 </script>
 ```
-Then place this code anywhere in your svelte file
+Then place this code anywhere in your svelte file (preferably in your `+layout.svelte`)
 ```svelte
 <Seo 
   title="Contact"
@@ -39,6 +39,55 @@ Then place this code anywhere in your svelte file
 />
 ```
 
+> [!IMPORTANT]
+> It's recommeded to place the `Seo` component in your `+layout.svelte` page **only once**. 
+> DO NOT PLACE IT IN MULTIPLE PAGES TO AVOID DUPLICATE META TAGS.
+> Use $page.data store, +layout.js and +page.js load functions to dynamically change meta tags.
+> This has been also mentioned in the [Svelte/Seo](https://svelte.dev/docs/kit/seo#Manual-setup) documentation.
+
+## Example (With $page store)
+`+layout.svelte`
+```svelte
+<script>
+  import Seo from 'sk-seo';
+  import { page } from "$app/stores";
+</script>
+
+<Seo 
+  {$page.data}
+/>
+```
+
+`+layout.js`
+
+```js
+export const load = async ({}) => {
+    return {
+        title: "Dahoom - Official",
+        description: "Dahoom AlShaya's official website",
+        keywords: "Dahoom, AlShaya, Official, Website",
+    }
+}
+```
+
+Then in your pages, you can change the meta tags.
+Example with: `routes/contacts/+page.js`
+```js
+export const load = async ({}) => {
+    return {
+        title: "Contact",
+        description: "Where to contact Dahoom AlShaya, whether for business needs or general inquiries",
+        keywords: "Contact, business, inquiries",
+    }
+}
+```
+
+> [!NOTE]
+> The return data names from load functions should match the names of the parameters in the `Seo` component. Otherwise, make sure to use individual props such as `<Seo title=$page.data.customtitle />` (for example).
+
+> [!NOTE]
+> You can do this for either `+page.js`, `+layout.js`, and server side code such as `+page.server.js` and `+layout.server.js`.
+> 
 ## Standard Parameters
 | Parameter     | Description             | Type | Default             |
 | ------------- | ----------------------- | ------- | ----------------------- |
@@ -103,6 +152,10 @@ const config = {
 If you're behind `Cloudflare` and find yourself with duplicated meta tags, then you should disable auto-minify!
 
 `Speed -> Optimization -> Content Optimization -> Auto Minify -> UNCHECK HTML`
+
+Still experiencing duplicated meta? Make sure that you aren't placing thw `Seo` component in multiple pages (make a +layout.svelte 
+and put it there instead).
+Remember that if you're using any `<title>`, and other meta tags in your `app.html`, it won't get updated (Svelte/SvelteKit doesn't handle that automatically).
 
 ## License
 [MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)
