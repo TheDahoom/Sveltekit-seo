@@ -26,7 +26,7 @@ If you're using @adapter-static, make sure to follow <a href="#prerendering">thi
 ## Usage
 Add the component to your layout file (eg: `+layout.svelte`).
 ```svelte
-// +layout.svelte
+<!-- +layout.svelte -->
 <script>
   import Seo from 'sk-seo';
 </script>
@@ -37,7 +37,8 @@ This component makes use of `$page.data` **stores**. So we should use some load 
 > [!NOTE]
 > These will be automatically picked up by the component and used to fill in the meta tags.
 
-Add a `+layout.js` file alongside your `+layout.svelte` with a load function and return data with the SEO/Meta that you need:
+Add a `+layout.js` file alongside your `+layout.svelte` with a load function and return data with the 
+SEO/Meta that you need:
 ```js
 // +layout.js
 export const load = async ({ url }) => {
@@ -70,12 +71,16 @@ export const load = async ({ url }) => {
 }
 ```
 
+> [!TIP]
+> This also works with `+layout.server.js` and `+page.server.js`.
+
 ## DEPRECATED USAGE (Not recommended, duplicates meta tags)
 Put a `<Seo />` tag in each page you want to have SEO for.
-> [!NOTE]
-> This's fine as long as you're making a single-page website (such as, just an homepage). But if you're making a multi-page website, you should use the previous method!
+> [!WARNING]
+> This's fine as long as you're making a single-page website (such as, just an homepage). But if you're making a 
+> multi-page website, you should use the previous method!
 ```svelte
-// contacts/+page.svelte
+<!-- contacts/+page.svelte -->
 <script>
   import Seo from 'sk-seo';
 </script>
@@ -88,19 +93,22 @@ Put a `<Seo />` tag in each page you want to have SEO for.
 ```
 
 > [!CAUTION]
-> Using `<Seo />` on each page will duplicate meta tags. This's why we recommend using the first method (load functions and `<Seo />` only in your +layout.svelte).
+> Using `<Seo />` on each page will duplicate meta tags. This's why we recommend using the first method 
+> (`load` functions and `<Seo />` only in your `+layout.svelte`).
 
 ### Conflicting stores/load return values
 
-You could even combine stores and manual input if you really have to:
+You could even combine stores (with any name that you want, just make sure to use the same name that you return from 
+your `+layout.js/+page.js` load function) and manual input if you really have to:
 ```svelte
+<!-- +layout.svelte -->
 <script>
   import Seo from 'sk-seo';
   import { page } from '$app/stores';
 </script>
 
 <Seo 
-  title={$page.data.customTitle ?? ''}
+  title={$page.data.customTitle ?? ''} <!-- CUSTOM NAME: title now points to $page.data.customTitle store -->
   description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
   keywords="Contact, business, inquiries"
 />
