@@ -138,6 +138,7 @@ All these choices are optional
 | `author`| Represents the author of the page | string | ~ |
 | `socials`| An array of social media links for SchemaOrg | Array | ~ |
 | `name`| The name to be used for SchemaOrg | string | ~ |
+| `type`| The type of the page (website, article, [etc](https://schema.org/docs/full.html)) | string | website |
 
 ## How it works
 The component uses `<svelte:head>` to place meta tags that are filled with sveltekit $page and inputted variables, this means that a lot of the tags are automatically filled for you for each page in your website. An example of this is `og:url`, which requires the url of the current page:

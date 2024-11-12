@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
 
     export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
-        author = $page.data.author ?? "", name =$page.data.name ?? "";
+        author = $page.data.author ?? "", name =$page.data.name ?? "", type = $page.data.type ?? "website";
     export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
     export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
     export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
@@ -32,7 +32,7 @@
             <meta name="robots" content={index ? "index, follow" : "noindex"}>
         {/if}
         <title>{title}</title>
-        <link rel="canonical" href="{canonical === '' ? $page.url : canonical}">
+        <link rel="canonical" href="{canonical ?? $page.url.href}">
     {/if}
     {#if description !== ""}
         <meta name="description" content="{description}">
@@ -48,8 +48,8 @@
             <meta property="og:site_name" content="{siteName}">
         {/if}
         {#if title !== ""}
-            <meta property="og:url" content="{$page.url}">
-            <meta property="og:type" content="website">
+            <meta property="og:url" content="{$page.url.href}">
+            <meta property="og:type" content="{type}">
             <meta property="og:title" content="{title}">
         {/if}
         {#if description !== ""}
@@ -65,8 +65,8 @@
     {#if twitter}
         {#if title !== ""}
             <meta name="twitter:card" content="summary_large_image">
-            <meta property="twitter:domain" content="{$page.url.host}">
-            <meta property="twitter:url" content="{$page.url}">
+            <meta property="twitter:domain" content="{$page.url.hostname}">
+            <meta property="twitter:url" content="{$page.url.href}">
             <meta name="twitter:title" content="{title}">
         {/if}
         {#if description !== ""}
