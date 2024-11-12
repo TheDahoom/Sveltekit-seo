@@ -77,7 +77,7 @@
         {/if}
     {/if}
     <slot/>
-    {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
+    {#if schemaOrg && (socials[0] !== undefined || logo !== "" || name !== "")}
         {@html LdScript}
     {/if}
 </svelte:head>
