@@ -1,12 +1,5 @@
 > [!DANGER]
-> There's an ongoing issue with Svelte 5 compatibility of this implementation (stores). Values won't update unless you insert props explicitly, like this:
-> ```svelte
-> <script>
->  import { page } from '$app/stores';
-> </script>
-> <Seo title={$page.data.title} description={$page.data.description} keywords={$page.data.keywords} />
-> ```
-> Thus, the previous method may not work either. This requires more testing and development.
+> Svelte 5 support is still pretty much experimental, it requires heavy testing and might not work as expected.
 
 <p align="center">
   <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/338fd0ad-120f-4b4b-ac00-d56e0b765724" alt="sk-seo logo" />
