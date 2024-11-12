@@ -35,6 +35,8 @@ export default class Seo extends SvelteComponent<{
     socials?: string[];
     /** The name to be used for SchemaOrg */
     name?: string;
+    /** The type of the page */
+    type?: string;
 }, {
     [evt: string]: CustomEvent<any>;
 }, {}> {
@@ -61,6 +63,7 @@ declare const __propDef: {
         author?: string;
         socials?: string[];
         name?: string;
+        type?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;
