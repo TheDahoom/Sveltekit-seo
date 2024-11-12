@@ -45,77 +45,87 @@
         children
     } = $props();
 
-    let Ld = {
+    // WORKAROUND TO ENSURE REACTIVITY
+    let finalTitle = $derived($page.data.title ?? title), finalDescription = $derived($page.data.description ?? description),
+        finalKeywords = $derived($page.data.keywords ?? keywords), finalCanonical = $derived($page.data.canonical ?? canonical),
+        finalSiteName = $derived($page.data.siteName ?? siteName), finalImageURL = $derived($page.data.imageURL ?? imageURL),
+        finalLogo = $derived($page.data.logo ?? logo), finalType = $derived($page.data.type ?? type),
+        finalAuthor = $derived($page.data.author ?? author), finalName = $derived($page.data.name ?? name);
+    let finalIndex = $derived($page.data.index ?? index), finalTwitter = $derived($page.data.twitter ?? twitter),
+        finalOpenGraph = $derived($page.data.openGraph ?? openGraph), finalSchemaOrg = $derived($page.data.schemaOrg ?? schemaOrg);
+    let finalSchemaType = $derived($page.data.schemaType ?? schemaType), finalSocials = $derived($page.data.socials ?? socials),
+        finalJsonld = $derived($page.data.jsonld ?? jsonld);
+
+    let LdScript = $derived(`<script type="application/ld+json">${JSON.stringify({
         "@context": "https://schema.org",
-        "@type": schemaType.length > 1 ? schemaType : schemaType[0],
-        "name": name,
+        "@type": finalSchemaType.length > 1 ? finalSchemaType : finalSchemaType[0],
+        "name": finalName,
         "url": $page.url.origin,
-        "image": imageURL,
+        "image": finalImageURL,
         "logo": {
             "@type": "ImageObject",
-            "url": logo,
+            "url": finalLogo,
             "width": 48,
             "height": 48
         },
-        "sameAs": socials
-    };
-    Ld = { ...Ld, ...jsonld };
-    let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
+        "sameAs": finalSocials
+        , ...finalJsonld}
+    )}${'<'}/script>`);
 </script>
 <svelte:head>
-    {#if title !== ""}
-        {#if imageURL}
-            <meta name="robots" content={index ? "index, follow, max-image-preview:large" : "noindex"}>
+    {#if finalTitle !== ""}
+        {#if finalImageURL}
+            <meta name="robots" content={finalIndex ? "index, follow, max-image-preview:large" : "noindex"}>
         {:else}
-            <meta name="robots" content={index ? "index, follow" : "noindex"}>
+            <meta name="robots" content={finalIndex ? "index, follow" : "noindex"}>
         {/if}
-        <title>{title}</title>
-        <link rel="canonical" href="{canonical ? canonical : $page.url.href}">
+        <title>{finalTitle}</title>
+        <link rel="canonical" href="{finalCanonical ? finalCanonical : $page.url.href}">
     {/if}
-    {#if description !== ""}
-        <meta name="description" content="{description}">
+    {#if finalDescription !== ""}
+        <meta name="description" content="{finalDescription}">
     {/if}
-    {#if keywords !== ""}
-        <meta name="keywords" content="{keywords}">
+    {#if finalKeywords !== ""}
+        <meta name="keywords" content="{finalKeywords}">
     {/if}
-    {#if author !== ""}
-        <meta name="author" content="{author}">
+    {#if finalAuthor !== ""}
+        <meta name="author" content="{finalAuthor}">
     {/if}
-    {#if openGraph}
-        {#if siteName !== ""}
-            <meta property="og:site_name" content="{siteName}">
+    {#if finalOpenGraph}
+        {#if finalSiteName !== ""}
+            <meta property="og:site_name" content="{finalSiteName}">
         {/if}
-        {#if title !== ""}
+        {#if finalTitle !== ""}
             <meta property="og:url" content="{$page.url.href}">
-            <meta property="og:type" content="{type}">
-            <meta property="og:title" content="{title}">
+            <meta property="og:type" content="{finalType}">
+            <meta property="og:title" content="{finalTitle}">
         {/if}
-        {#if description !== ""}
-            <meta property="og:description" content="{description}">
+        {#if finalDescription !== ""}
+            <meta property="og:description" content="{finalDescription}">
         {/if}
-        {#if imageURL !== ""}
-            <meta property="og:image" content="{imageURL}">
+        {#if finalImageURL !== ""}
+            <meta property="og:image" content="{finalImageURL}">
         {/if}
-        {#if logo !== ""}
-            <meta property="og:logo" content="{logo}">
+        {#if finalLogo !== ""}
+            <meta property="og:logo" content="{finalLogo}">
         {/if}
     {/if}
-    {#if twitter}
-        {#if title !== ""}
+    {#if finalTwitter}
+        {#if finalTitle !== ""}
             <meta name="twitter:card" content="summary_large_image">
             <meta property="twitter:domain" content="{$page.url.hostname}">
             <meta property="twitter:url" content="{$page.url.href}">
-            <meta name="twitter:title" content="{title}">
+            <meta name="twitter:title" content="{finalTitle}">
         {/if}
-        {#if description !== ""}
-            <meta name="twitter:description" content="{description}">
+        {#if finalDescription !== ""}
+            <meta name="twitter:description" content="{finalDescription}">
         {/if}
-        {#if imageURL !== ""}
-            <meta name="twitter:image" content="{imageURL}">
+        {#if finalImageURL !== ""}
+            <meta name="twitter:image" content="{finalImageURL}">
         {/if}
     {/if}
     {@render children?.()}
-    {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
+    {#if finalSchemaOrg && (finalSocials[0] !== undefined || finalLogo !== "" || finalName !== "")}
         {@html LdScript}
     {/if}
 </svelte:head>
