@@ -1,11 +1,49 @@
+<!-- Originally Dahoom Sveltekit-seo -->
 <script>
     import { page } from "$app/stores";
 
-    export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
-        author = $page.data.author ?? "", name =$page.data.name ?? "", type = $page.data.type ?? "website";
-    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
-    export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
-    export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
+    /**
+     * @type {{
+     * children?: import('svelte').Snippet,
+     * title?: string,
+     * description?: string,
+     * keywords?: string,
+     * canonical?: string,
+     * siteName?: string,
+     * imageURL?: string,
+     * logo?: string,
+     * type?: string,
+     * author?: string,
+     * name?: string,
+     * index?: boolean,
+     * twitter?: boolean,
+     * openGraph?: boolean,
+     * schemaOrg?: boolean,
+     * schemaType?: string[],
+     * socials?: string[],
+     * jsonld?: Record<string, any>
+     * }}
+     * */
+    let {
+        title = $page.data.title ?? "",
+        description = $page.data.description ?? "",
+        keywords = $page.data.keywords ?? "",
+        canonical = $page.data.canonical ?? "",
+        siteName = $page.data.siteName ?? "",
+        imageURL = $page.data.imageURL ?? "",
+        logo = $page.data.logo ?? "",
+        type = $page.data.type ?? "website",
+        author = $page.data.author ?? "",
+        name = $page.data.name ?? "",
+        index = $page.data.index ?? true,
+        twitter = $page.data.twitter ?? true,
+        openGraph = $page.data.openGraph ?? true,
+        schemaOrg = $page.data.schemaOrg ?? false,
+        schemaType = $page.data.schemaType ?? ['Person', 'Organization'],
+        socials = $page.data.socials ?? [],
+        jsonld = $page.data.jsonld ?? {},
+        children
+    } = $props();
 
     let Ld = {
         "@context": "https://schema.org",
@@ -21,7 +59,7 @@
         },
         "sameAs": socials
     };
-    Ld = {...Ld, ...jsonld};
+    Ld = { ...Ld, ...jsonld };
     let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
 <svelte:head>
@@ -76,7 +114,7 @@
             <meta name="twitter:image" content="{imageURL}">
         {/if}
     {/if}
-    <slot/>
+    {@render children?.()}
     {#if schemaOrg || socials[0] !== undefined || logo !== "" || name !== ""}
         {@html LdScript}
     {/if}

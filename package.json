@@ -26,5 +26,8 @@
     "url": "git+https://github.com/TheDahoom/Sveltekit-seo.git"
   },
   "author": "Dahoom AlShaya DahoomA@dahoom.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "svelte": "^5.1.15"
+  }
 }
