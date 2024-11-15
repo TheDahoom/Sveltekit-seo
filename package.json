@@ -1,6 +1,6 @@
 {
   "name": "sk-seo",
-  "version": "0.4.3",
+  "version": "0.5.0-next",
   "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
   "main": "SEO.svelte",
   "exports": {
@@ -27,7 +27,7 @@
   },
   "author": "Dahoom AlShaya DahoomA@dahoom.com",
   "license": "MIT",
-  "devDependencies": {
-    "svelte": "^5.1.15"
+  "peerDependencies": {
+    "svelte": ">=5.0.0"
   }
 }
