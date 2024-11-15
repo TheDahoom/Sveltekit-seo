@@ -1,7 +1,4 @@
-/** @typedef {typeof __propDef.props}  SeoProps */
-/** @typedef {typeof __propDef.events}  SeoEvents */
-/** @typedef {typeof __propDef.slots}  SeoSlots */
-export default class Seo extends SvelteComponent<{
+export interface SEOProps {
     /** The title of the page.*/
     title?: string;
     /** The description of the website.*/
@@ -35,36 +32,6 @@ export default class Seo extends SvelteComponent<{
     socials?: string[];
     /** The name to be used for SchemaOrg */
     name?: string;
-}, {
-    [evt: string]: CustomEvent<any>;
-}, {}> {
+    /** The type of the page */
+    type?: string;
 }
-export type SeoProps = typeof __propDef.props;
-export type SeoEvents = typeof __propDef.events;
-export type SeoSlots = typeof __propDef.slots;
-import { SvelteComponent } from "svelte";
-declare const __propDef: {
-    props: {
-        title?: string;
-        description?: string;
-        keywords?: string;
-        canonical?: string;
-        siteName?: string;
-        index?: boolean;
-        twitter?: boolean;
-        openGraph?: boolean;
-        schemaOrg?: boolean;
-        schemaType?: string;
-        jsonld?: {};
-        imageURL?: string;
-        logo?: string;
-        author?: string;
-        socials?: string[];
-        name?: string;
-    };
-    events: {
-        [evt: string]: CustomEvent<any>;
-    };
-    slots: {};
-};
-export {};
