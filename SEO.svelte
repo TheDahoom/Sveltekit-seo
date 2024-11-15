@@ -1,14 +1,10 @@
 <script>
-    import {page} from "$app/stores";
+    import { page } from "$app/stores";
 
-    export let title = $page.data.title ?? "", description = $page.data.description ?? "",
-        keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "",
-        siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
-        author = $page.data.author ?? "", name = $page.data.name ?? "", type = $page.data.type ?? "website";
-    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true,
-        openGraph = $page.data.openGraph ?? true;
-    export let schemaOrg = $page.data.schemaOrg ?? false,
-        schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
+    export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
+        author = $page.data.author ?? "", name =$page.data.name ?? "", type = $page.data.type ?? "website";
+    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
+    export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
     export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
 
     $: title = $page.data.title ?? title;
@@ -29,7 +25,7 @@
     $: socials = $page.data.socials ?? socials;
     $: jsonld = $page.data.jsonld ?? jsonld;
 
-    let Ld = {
+    $: Ld = {
         "@context": "https://schema.org",
         "@type": schemaType.length > 1 ? schemaType : schemaType[0],
         "name": name,
@@ -44,7 +40,7 @@
         "sameAs": socials
     };
     Ld = {...Ld, ...jsonld};
-    let LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
+    $: LdScript = `<script type="application/ld+json">${JSON.stringify(Ld)}${'<'}/script>`;
 </script>
 <svelte:head>
     {#if title !== ""}
