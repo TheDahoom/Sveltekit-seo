@@ -23,7 +23,7 @@ Also optionally includes functionality for social media preview support
 
 ## Installation
 ```bash 
-npm i -D sk-seo
+npm i -D sk-seo@next
 ```
 If you're using @adapter-static, make sure to follow <a href="#prerendering">this</a>
 ## Usage
