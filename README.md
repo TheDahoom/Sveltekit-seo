@@ -1,4 +1,4 @@
-> [!DANGER]
+> [!CAUTION]
 > Svelte 5 support is still pretty much experimental, it requires heavy testing and might not work as expected.
 
 <p align="center">
