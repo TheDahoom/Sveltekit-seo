@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Svelte 5 support is still pretty much experimental, it requires heavy testing and might not work as expected.
+
 <p align="center">
   <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/338fd0ad-120f-4b4b-ac00-d56e0b765724" alt="sk-seo logo" />
 </p>
@@ -24,16 +27,91 @@ npm i -D sk-seo
 ```
 If you're using @adapter-static, make sure to follow <a href="#prerendering">this</a>
 ## Usage
-import the file
+Add the component to your layout file (eg: `+layout.svelte`).
 ```svelte
+<!-- +layout.svelte -->
 <script>
   import Seo from 'sk-seo';
 </script>
+
+<Seo />
 ```
-Then place this code anywhere in your svelte file
+This component makes use of `$page.data` **stores**. So we should use some load functions.
+> [!NOTE]
+> These will be automatically picked up by the component and used to fill in the meta tags.
+
+Add a `+layout.js` file alongside your `+layout.svelte` with a load function and return data with the 
+SEO/Meta that you need:
+```js
+// +layout.js
+export const load = async ({ url }) => {
+    // OPTIONAL: You can use url.origin to get the base URL, 
+    // or even url.href to get the full URL.
+    // (For example, to get URLs of images in your /static folder), like this:
+    // imageURL: `${url.origin}/image.jpg`
+    return {
+        title: 'Dahoom - Official',
+        description: 'The official website of Dahoom',
+        keywords: 'dahoom, official, website'
+        // ... and more
+    }
+}
+```
+
+> [!TIP]
+> You can override your `+layout.js` meta from any `+page.js`.
+
+Make sure to add a `+page.js` with a load function to all your pages with the SEO/Meta that you need:
+```js
+// contacts/+page.js
+export const load = async ({ url }) => {
+    // Title, description and keywords set here will replace the title set in +layout.js while visiting /contacts
+    return {
+        title: 'Contacts', 
+        description: 'Where to contact Dahoom AlShaya, whether for business needs or general inquiries',
+        keywords: 'Contact, business, inquiries',
+    }
+}
+```
+
+> [!TIP]
+> This also works with `+layout.server.js` and `+page.server.js`.
+
+## DEPRECATED USAGE (Not recommended, duplicates meta tags)
+Put a `<Seo />` tag in each page you want to have SEO for.
+> [!WARNING]
+> This's fine as long as you're making a single-page website (such as, just an homepage). But if you're making a 
+> multi-page website, you should use the previous method!
 ```svelte
+<!-- contacts/+page.svelte -->
+<script>
+  import Seo from 'sk-seo';
+</script>
+
 <Seo 
   title="Contact"
+  description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
+  keywords="Contact, business, inquiries"
+/>
+```
+
+> [!CAUTION]
+> Using `<Seo />` on each page will duplicate meta tags. This's why we recommend using the first method 
+> (`load` functions and `<Seo />` only in your `+layout.svelte`).
+
+### Conflicting stores/load return values
+
+You could even combine stores (with any name that you want, just make sure to use the same name that you return from 
+your `+layout.js/+page.js` load function) and manual input if you really have to:
+```svelte
+<!-- +layout.svelte -->
+<script>
+  import Seo from 'sk-seo';
+  import { page } from '$app/stores';
+</script>
+
+<Seo 
+  title={$page.data.customTitle ?? ''} <!-- CUSTOM NAME: title now points to $page.data.customTitle store -->
   description="Where to contact Dahoom AlShaya, whether for business needs or general inquiries"
   keywords="Contact, business, inquiries"
 />
@@ -63,6 +141,7 @@ All these choices are optional
 | `author`| Represents the author of the page | string | ~ |
 | `socials`| An array of social media links for SchemaOrg | Array | ~ |
 | `name`| The name to be used for SchemaOrg | string | ~ |
+| `type`| The type of the page (website, article, [etc](https://schema.org/docs/full.html)) | string | website |
 
 ## How it works
 The component uses `<svelte:head>` to place meta tags that are filled with sveltekit $page and inputted variables, this means that a lot of the tags are automatically filled for you for each page in your website. An example of this is `og:url`, which requires the url of the current page:
@@ -83,9 +162,6 @@ A lot of SEO is repeated boilerplate for twitter, open graph and schemaOrg. This
 
 I initially made this for my personal website and decided to open source it to so that no one has to go through the headache I did to make sure everything is functional.
 
-## Keywords?!
-It's optional for anyone who wants to use it. Google doesn't rely on keywords anymore but apparently bing still does put a tiny weight on it. I personally use keywords for my personal website's search function.
-
 ## Prerendering
 If you are using adapter-static,  you need to add your base URL in `svelte.config.js`, otherwise `$page.url` will default to `http://sveltekit-prerender`.
 ```js
@@ -104,15 +180,16 @@ If you're behind `Cloudflare` and find yourself with duplicated meta tags, then 
 
 `Speed -> Optimization -> Content Optimization -> Auto Minify -> UNCHECK HTML`
 
-## License
-[MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)
-
-## Extra 
-If you have any ideas of fixes/imporvements/features that could be added then please suggest them [here](https://github.com/TheDahoom/Sveltekit-seo/discussions/3)
+> [!WARNING] 
+> Still having duplicated meta? Make sure that you're not using `<Seo />` in each page.
 
 ## Credits
+- Thanks to [GABRYCA](https://github.com/GABRYCA) for implementing a new cool new approach, svelte 5 and the multitude of additions that came with them!
 - Thanks to [ArchangelGCA](https://github.com/ArchangelGCA) for the multiple quality of life imporvements and fixes!
 - Thanks to [RodneyLab](https://github.com/rodneylab) for his [blog](https://rodneylab.com/adding-schema-org-markup-to-sveltekit-site/) post which taught me about jsonLd and for suggesting an interesting snippet of code to render jsonLd
+  
+## License
+[MIT License](https://github.com/TheDahoom/Sveltekit-seo/blob/main/LICENSE)
 
 ## As seen on
 [Svelte Blog](https://svelte.dev/blog/whats-new-in-svelte-may-2024)
