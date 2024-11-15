@@ -1,11 +1,33 @@
 <script>
-    import { page } from "$app/stores";
+    import {page} from "$app/stores";
 
-    export let title = $page.data.title ?? "", description = $page.data.description ?? "", keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "", siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
-        author = $page.data.author ?? "", name =$page.data.name ?? "", type = $page.data.type ?? "website";
-    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true, openGraph = $page.data.openGraph ?? true;
-    export let schemaOrg = $page.data.schemaOrg ?? false, schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
+    export let title = $page.data.title ?? "", description = $page.data.description ?? "",
+        keywords = $page.data.keywords ?? "", canonical = $page.data.canonical ?? "",
+        siteName = $page.data.siteName ?? "", imageURL = $page.data.imageURL ?? "", logo = $page.data.logo ?? "",
+        author = $page.data.author ?? "", name = $page.data.name ?? "", type = $page.data.type ?? "website";
+    export let index = $page.data.index ?? true, twitter = $page.data.twitter ?? true,
+        openGraph = $page.data.openGraph ?? true;
+    export let schemaOrg = $page.data.schemaOrg ?? false,
+        schemaType = $page.data.schemaType ?? ['Person', 'Organization'];
     export let socials = $page.data.socials ?? [], jsonld = $page.data.jsonld ?? {};
+
+    $: title = $page.data.title ?? title;
+    $: description = $page.data.description ?? description;
+    $: keywords = $page.data.keywords ?? keywords;
+    $: canonical = $page.data.canonical ?? canonical;
+    $: siteName = $page.data.siteName ?? siteName;
+    $: imageURL = $page.data.imageURL ?? imageURL;
+    $: logo = $page.data.logo ?? logo;
+    $: author = $page.data.author ?? author;
+    $: name = $page.data.name ?? name;
+    $: type = $page.data.type ?? type;
+    $: index = $page.data.index ?? index;
+    $: twitter = $page.data.twitter ?? twitter;
+    $: openGraph = $page.data.openGraph ?? openGraph;
+    $: schemaOrg = $page.data.schemaOrg ?? schemaOrg;
+    $: schemaType = $page.data.schemaType ?? schemaType;
+    $: socials = $page.data.socials ?? socials;
+    $: jsonld = $page.data.jsonld ?? jsonld;
 
     let Ld = {
         "@context": "https://schema.org",
