@@ -1,6 +1,6 @@
 {
   "name": "sk-seo",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "A lightweight, no depenencies, Sveltekit SEO component to save your time",
   "main": "SEO.svelte",
   "exports": {
@@ -26,5 +26,8 @@
     "url": "git+https://github.com/TheDahoom/Sveltekit-seo.git"
   },
   "author": "Dahoom AlShaya DahoomA@dahoom.com",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "svelte": "<=4.2.19"
+  }
 }
