@@ -37,14 +37,14 @@ jobs:
           release_name: v${{ steps.check-version.outputs.new_version }}
           draft: false
           prerelease: ${{ contains(steps.check-version.outputs.new_version, '-') }}
-      # - name: Publish to npm
-      #   if: steps.check-version.outputs.version_changed == 'true'
-      #   run: |
-      #     VERSION=$(node -p "require('./package.json').version")
-      #     if [[ "$VERSION" == *"-"* ]]; then
-      #       npm publish --tag next
-      #     else
-      #       npm publish
-      #     fi
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Publish to npm
+        if: steps.check-version.outputs.version_changed == 'true'
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" == *"-"* ]]; then
+            npm publish --tag next
+          else
+            npm publish
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
