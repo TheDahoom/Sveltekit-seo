@@ -2,7 +2,7 @@
 > Svelte 5 support is still pretty much experimental, it requires heavy testing and might not work as expected.
 
 <p align="center">
-  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/338fd0ad-120f-4b4b-ac00-d56e0b765724" alt="sk-seo logo" />
+  <img src="https://github.com/TheDahoom/Sveltekit-seo/assets/105564371/bed144c2-6289-459c-8132-c40a6521a656" alt="sk-seo logo" />
 </p>
 
 
