@@ -36,12 +36,11 @@ Add the component to your layout file (eg: `+layout.svelte`).
 
 <Seo />
 ```
-This component makes use of `$page.data` **stores**. So we should use some load functions.
-> [!NOTE]
-> These will be automatically picked up by the component and used to fill in the meta tags.
 
 Add a `+layout.js` file alongside your `+layout.svelte` with a load function and return data with the 
 SEO/Meta that you need:
+> [!TIP]
+> For type support follow this [guide](https://github.com/TheDahoom/Sveltekit-seo/wiki/v0.5--types)
 ```js
 // +layout.js
 export const load = async ({ url }) => {
@@ -148,6 +147,7 @@ The component uses `<svelte:head>` to place meta tags that are filled with svelt
 ```svelte
 <meta property="og:url" content="{$page.url}">
 ```
+Since v0.5 the component also makes use of `$page.data` **stores**. These will be automatically picked up by the component and used to fill in the meta tags
 
 ## Extendable
 If you want to use an unusual meta tag or use your own custom one (eg: google site verification). It's easy as:
