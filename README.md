@@ -75,7 +75,7 @@ export const load = async ({ url }) => {
 ## DEPRECATED USAGE (Not recommended, duplicates meta tags)
 Put a `<Seo />` tag in each page you want to have SEO for.
 > [!WARNING]
-> This's fine as long as you're making a single-page website (such as, just an homepage). But if you're making a 
+> This's fine as long as you're making a single-page website (such as, just a homepage). But if you're making a 
 > multi-page website, you should use the previous method!
 ```svelte
 <!-- contacts/+page.svelte -->
