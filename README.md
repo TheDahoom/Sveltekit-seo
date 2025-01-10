@@ -72,7 +72,7 @@ export const load = async ({ url }) => {
 > [!TIP]
 > This also works with `+layout.server.js` and `+page.server.js`.
 
-## DEPRECATED USAGE (Not recommended, duplicates meta tags)
+## Component method (Not recommended, duplicates meta tags)
 Put a `<Seo />` tag in each page you want to have SEO for.
 > [!WARNING]
 > This's fine as long as you're making a single-page website (such as, just a homepage). But if you're making a 
