@@ -1,4 +1,5 @@
 export interface SEOProps {
+    children?: any;
     /** The title of the page.*/
     title?: string;
     /** The description of the website.*/
